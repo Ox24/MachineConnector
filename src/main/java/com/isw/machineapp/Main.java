@@ -31,7 +31,7 @@ public class Main {
     protected final static List<String> cmdSequence = new ArrayList<String>();
     OPCUAConnector connector = OPCUAConnector.getInstance();
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String args[]){
         Path currentRelativePath = Paths.get("");
         String path = currentRelativePath.toAbsolutePath().toString();
         PropertyConfigurator.configure(path.concat(LF4J_PROP));

@@ -7,6 +7,7 @@ import org.opcfoundation.ua.core.ApplicationDescription;
 import org.opcfoundation.ua.core.ApplicationType;
 import org.opcfoundation.ua.transport.security.SecurityMode;
 import utils.MachineAppUtils;
+import utils.RetryStrategy;
 
 import java.util.Locale;
 
@@ -24,10 +25,10 @@ public class OPCUAConnector {
     }
 
     public static OPCUAConnector getInstance() {
-        if (OPCUAConnector.connector == null) {
-            OPCUAConnector.connector = new OPCUAConnector();
+        if (connector == null) {
+            connector = new OPCUAConnector();
         }
-        return OPCUAConnector.connector;
+        return connector;
     }
 
     public void connectToServer(String serverName) throws Exception {

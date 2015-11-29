@@ -1,4 +1,4 @@
-package com.isw.machineapp;
+package utils;
 
 /**
  * Created by Timur on 29.11.2015.
