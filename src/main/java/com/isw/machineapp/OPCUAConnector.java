@@ -18,6 +18,7 @@ public class OPCUAConnector {
 
     private static OPCUAConnector connector;
     private static boolean isConnected;
+    private UaClient client;
 
     private OPCUAConnector() {
     }
@@ -31,7 +32,7 @@ public class OPCUAConnector {
 
     public void connectToServer(String serverName) throws Exception {
 
-        UaClient client = new UaClient(serverName);
+        client = new UaClient(serverName);
         RetryStrategy retry = new RetryStrategy();
         client.setSecurityMode(SecurityMode.NONE);
         init(client);
@@ -43,6 +44,12 @@ public class OPCUAConnector {
             }
         }
         setConnectionStatus(client.isConnected());
+    }
+
+    public void disconect(){
+        if(client != null){
+            client.disconnect();
+        }
     }
 
     protected static void setConnectionStatus(boolean status){
