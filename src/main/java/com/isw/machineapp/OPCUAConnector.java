@@ -47,7 +47,7 @@ public class OPCUAConnector {
         setConnectionStatus(client.isConnected());
     }
 
-    public void disconect(){
+    public void disconnect(){
         if(client != null){
             client.disconnect();
         }

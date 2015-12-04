@@ -1,10 +1,8 @@
 package com.isw.machineapp;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.PropertyConfigurator;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
@@ -42,10 +40,11 @@ public class Main {
     private void printMenu() {
         System.out.println("--------------------------------------");
         System.out.println("-----------------Menu-----------------");
-        System.out.println("[0] connect to Server");
-        System.out.println("[1] disconnect from Server");
+        System.out.println("[0] connect to OPCServer");
+        System.out.println("[1] disconnect from OPCServer");
         System.out.println("[2] create subscription");
-        System.out.println("[3] quit");
+        System.out.println("[3] publish to MQM");
+        System.out.println("[x] quit");
         System.out.println("--------------------------------------");
         System.out.println("--------------------------------------");
     }
@@ -65,7 +64,9 @@ public class Main {
                     case 2:
                         break;
                     case 3:
-                        connector.disconect();
+
+                    case 'x':
+                        connector.disconnect();
                         return;
                 }
             } catch (Exception e) {
