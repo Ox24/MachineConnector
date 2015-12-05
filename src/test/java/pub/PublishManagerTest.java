@@ -11,11 +11,11 @@ import static org.junit.Assert.*;
  * Created by Timur on 04.12.2015.
  */
 public class PublishManagerTest {
-    private PublishManager manager;
+    private PublishManager manager = PublishManager.getInstance();
 
-    @org.junit.Before
-    public void setUp(){
-        manager = PublishManager.getInstance();
+    @org.junit.BeforeClass
+    public static void setUp(){
+        PublishManager manager = PublishManager.getInstance();
         try {
             manager.init("localhost");
         } catch (IOException e) {
@@ -25,9 +25,10 @@ public class PublishManagerTest {
         }
     }
 
-    @org.junit.After
-    public void tearDown() throws IOException, TimeoutException {
+    @org.junit.AfterClass
+    public static void tearDown() throws IOException, TimeoutException {
         try {
+            PublishManager manager = PublishManager.getInstance();
             manager.shutdown();
         } catch (IOException e) {
             e.printStackTrace();
