@@ -1,5 +1,7 @@
 package pub;
 
+import com.rabbitmq.client.Channel;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,16 +39,6 @@ public class PublishManagerTest {
         }
     }
 
-    @org.junit.Test
-    public void testAddChannels() throws Exception {
-
-    }
-
-    @org.junit.Test
-    public void testGetChannelsMap() throws Exception {
-
-    }
-
     /**
      * Should return the same Instance
      * @throws Exception
@@ -66,6 +58,8 @@ public class PublishManagerTest {
 
     @org.junit.Test
     public void testPubStringToChannel() throws Exception {
-
+        String message = "This is a test message";
+        Channel channel = manager.getChannelsMap().get("Topic1");
+        manager.pubStringToChannel(channel, "Topic1", message);
     }
 }
