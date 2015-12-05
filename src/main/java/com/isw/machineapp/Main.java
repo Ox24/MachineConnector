@@ -57,7 +57,7 @@ public class Main {
                     case ACTION_RETURN:
                         return;
                     case 0:
-                        connector.connectToServer("opc.tcp://Timur-PC:48010");
+                        connector.connectToServer("opc.tcp://Timur:48010");
                         break;
                     case 1:
                         break;
